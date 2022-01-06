@@ -2,14 +2,15 @@ package seleniumOne;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class signUp1 {
+public class elementsNavigation {
 
 	public static void main(String[] args) throws InterruptedException {
-
-
-     System.setProperty("webdriver.chrome.driver", "C:\\Users\\Nilla\\Desktop\\ChromeD\\chromedriver.exe");
+		
+		
+      System.setProperty("webdriver.chrome.driver", "C:\\Users\\Nilla\\Desktop\\ChromeD\\chromedriver.exe");
 		
 		WebDriver driver = new ChromeDriver();
 		
@@ -27,21 +28,19 @@ public class signUp1 {
 		
 		Thread.sleep(3000);
 		
-		driver.findElement(By.id("usernamereg-firstName")).sendKeys("Kimmy");
+		WebElement contButton = driver.findElement(By.name("signup"));
 		
-		driver.findElement(By.id("usernamereg-lastName")).sendKeys("Diam");
+		boolean contdisplay = contButton.isDisplayed();
+		boolean contEnable = contButton.isEnabled();
 		
-		driver.findElement(By.name("yid")).sendKeys("kimmy66");
+		System.out.println(contdisplay);
+		System.out.println(contEnable);
 		
-		driver.findElement(By.name("password")).sendKeys("ZaheenRoom1");
+		String conttext = contButton.getText();
 		
+		System.out.println(conttext);
 		
-		
-		
-		
-		
-		
-		driver.close();
+		driver.quit();
 
 	}
 

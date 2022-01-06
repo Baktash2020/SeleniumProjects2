@@ -2,9 +2,10 @@ package seleniumOne;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class signUp1 {
+public class linkNavagation {
 
 	public static void main(String[] args) throws InterruptedException {
 
@@ -27,21 +28,37 @@ public class signUp1 {
 		
 		Thread.sleep(3000);
 		
-		driver.findElement(By.id("usernamereg-firstName")).sendKeys("Kimmy");
+		WebElement Helplink = driver.findElement(By.linkText("Help"));
 		
-		driver.findElement(By.id("usernamereg-lastName")).sendKeys("Diam");
+		Helplink.click();
 		
-		driver.findElement(By.name("yid")).sendKeys("kimmy66");
-		
-		driver.findElement(By.name("password")).sendKeys("ZaheenRoom1");
+		Thread.sleep(3000);
 		
 		
+		String helppageUrl = driver.getCurrentUrl();
+		Thread.sleep(3000);
+		
+		String helpPageTitle = driver.getTitle();
+		
+		System.out.println(helppageUrl);
+		System.out.println(helpPageTitle);
+		
+		driver.navigate().back();
+		Thread.sleep(1000);
+		driver.navigate().forward();
+		
+		helppageUrl = driver.getCurrentUrl();
+		Thread.sleep(3000);
+		
+		helpPageTitle = driver.getTitle();
+		
+		System.out.println(helppageUrl);
+		System.out.println(helpPageTitle);
 		
 		
 		
 		
-		
-		driver.close();
+		driver.quit();
 
 	}
 
